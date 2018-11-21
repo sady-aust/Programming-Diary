@@ -21,7 +21,7 @@ class BlogController extends Controller
         if(Auth::check()){
 
             $categories = Category::WHERE("category_publication_status",1)
-                                    ->get();
+                ->get();
 
             return view("admin.Blog.addblog",["categories"=>$categories]);
         }
@@ -35,7 +35,7 @@ class BlogController extends Controller
         $blog_image =$request->file("blog_img");
 
         $extension = $blog_image->getClientOriginalExtension();
-        $imageName = $request->blog_title.".".$extension;
+        $imageName = $date = date('mdYhis', time()).".".$extension;
         $directory = 'blog-images/';
         $imageurl = $directory.$imageName;
 
@@ -72,9 +72,9 @@ class BlogController extends Controller
         if(Auth::check()){
 
             $blogs = DB::TABLE("blogs")
-                        ->JOIN("categories","blogs.category_id","=","categories.id")
-                        ->SELECT("blogs.*","categories.category_name")
-                        ->GET();
+                ->JOIN("categories","blogs.category_id","=","categories.id")
+                ->SELECT("blogs.*","categories.category_name")
+                ->GET();
 
 
             return view("admin.Blog.manageblog",["blogs"=>$blogs]);
@@ -89,14 +89,14 @@ class BlogController extends Controller
         if(Auth::check()){
 
             $blog = DB::TABLE("blogs")
-                      ->JOIN("categories","blogs.category_id","=","categories.id")
-                      ->SELECT("blogs.*","categories.category_name")
-                      ->WHERE("blogs.id",$blogId)
-                      ->FIRST();
+                ->JOIN("categories","blogs.category_id","=","categories.id")
+                ->SELECT("blogs.*","categories.category_name")
+                ->WHERE("blogs.id",$blogId)
+                ->FIRST();
 
 
 
-            return view("admin.Blog.editblog",["blog"=>$blog]);
+            return view("admin.Blog.editBlog",["blog"=>$blog]);
         }
         else{
             return view("auth.login");
@@ -107,10 +107,10 @@ class BlogController extends Controller
         if(Auth::check()){
 
 
-           $blog_image = $request->file("blog_img");
+            $blog_image = $request->file("blog_img");
 
             if($blog_image){
-               $blog = Blog::FIND($request->blog_id);
+                $blog = Blog::FIND($request->blog_id);
 
 
                 unlink($blog->blog_image_direcotry);
