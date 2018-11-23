@@ -1,5 +1,27 @@
 @extends("front-end.master")
+@section("metatags")
+    <!-- HTML Meta Tags -->
+    <title>About Me</title>
+    <meta name="description" content="আমি মোঃ তৌফিকুল ইসলাম। বর্তমানে আহসানউল্লাহ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে সিএসই বিভাগে পড়াশুনা করছি।">
 
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="About Me">
+    <meta itemprop="description" content="আমি মোঃ তৌফিকুল ইসলাম। বর্তমানে আহসানউল্লাহ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে সিএসই বিভাগে পড়াশুনা করছি।">
+    <meta itemprop="image" content="{{asset("/AboutMeImage/aboutme.JPG")}}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="http://www.toufiqulislam.com/aboutme">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About Me">
+    <meta property="og:description" content="আমি মোঃ তৌফিকুল ইসলাম। বর্তমানে আহসানউল্লাহ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়ে সিএসই বিভাগে পড়াশুনা করছি।">
+    <meta property="og:image" content="{{asset("/AboutMeImage/aboutme.JPG")}}">
+
+
+
+    <!-- Meta Tags Generated via http://heymeta.com -->
+@endsection
+
+@section("body")
 <div class="container">
 
     <div class="row">
@@ -68,3 +90,4 @@
 
 </div>
 <!-- /.container -->
+@endsection
