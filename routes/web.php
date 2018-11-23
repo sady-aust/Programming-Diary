@@ -94,5 +94,10 @@ Route::get("home/{blogtitle}/{blogid}",[
     "uses"=>"FrontEndController@ReadMore",
     "as"=>"readmore"
 ]);
+
+Route::get("/aboutme",[
+    "uses"=>"FrontEndController@AboutMe",
+    "as"=>"aboutme"
+]);
 //Route::get('/home', 'HomeController@index')->name('home');
 

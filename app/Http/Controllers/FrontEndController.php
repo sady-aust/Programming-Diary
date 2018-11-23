@@ -29,6 +29,10 @@ class FrontEndController extends Controller
             ->GET();
 
 
-           return view("/front-end.BlogDetails.blogdetails",["blog"=>$blog,"categories"=>$categories]);
+           return view("front-end.BlogDetails.blogdetails",["blog"=>$blog,"categories"=>$categories]);
+    }
+
+    public function AboutMe(){
+        return view("front-end.AboutMe.aboutme");
     }
 }

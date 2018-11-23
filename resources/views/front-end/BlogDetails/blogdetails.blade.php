@@ -1,4 +1,29 @@
 @extends("front-end.master")
+@section("metatags")
+    <!-- HTML Meta Tags -->
+    <title>{{$blog->blog_title}}</title>
+    <meta name="description" content="{{$blog->blog_short_description}}">
+
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="{{$blog->blog_title}}">
+    <meta itemprop="description" content="{{$blog->blog_short_description}}">
+    <meta itemprop="image" content="{{asset($blog->blog_image_direcotry)}}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="http://www.toufiqulislam.com/{{$blog->blog_short_description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{$blog->blog_title}}">
+    <meta property="og:description" content="{{$blog->blog_short_description}}">
+    <meta property="og:image" content="{{asset($blog->blog_image_direcotry)}}">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="{$blog->blog_title}}">
+    <meta name="twitter:title" content="{$blog->blog_title}}">
+    <meta name="twitter:description" content="{{$blog->blog_short_description}}">
+    <meta name="twitter:image" content="{{asset($blog->blog_image_direcotry)}}">
+
+    <!-- Meta Tags Generated via http://heymeta.com -->
+@endsection
 @section("body")
     <!-- Page Content -->
     <div class="container">
@@ -30,7 +55,7 @@
                 <hr>
 
                 <!-- Post Content -->
-                        {!! $blog->blog_articles !!}
+                {!! $blog->blog_articles !!}
 
 
 
